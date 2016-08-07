@@ -6,10 +6,6 @@ output "autoscaling.availability_zones" {
   value = "${aws_autoscaling_group.ecs-cluster.availability_zones}"
 }
 
-output "autoscaling.subnet_ids" {
-  value = "${aws_autoscaling_group.ecs-cluster.subnet_ids}"
-}
-
 output "autoscaling.min_size" {
   value = "${aws_autoscaling_group.ecs-cluster.min_size}"
 }
