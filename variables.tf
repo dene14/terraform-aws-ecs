@@ -82,3 +82,48 @@ variable "environment_name" {
     default = ""
     description = "Environment name to tag EC2 resources with (tag=environment)"
 }
+
+variable "root_block_device_type" {
+    default = "standard"
+    description = "Type of ECS instance root volume"
+}
+
+variable "root_block_device_size" {
+    default = "8"
+    description = "Size of ECS instance root volume"
+}
+
+variable "root_block_device_delete" {
+    default = true
+    description = "Mark ECS instance root volume for removal"
+}
+
+variable "root_block_device_iops" {
+    default = "100"
+    description = "IOPS throughput of ECS instance root volume"
+}
+
+variable "ebs_block_device_name" {
+    default = "/dev/xvdcz"
+    description = "Name of ECS docker volume"
+}
+
+variable "ebs_block_device_type" {
+    default = "standard"
+    description = "Type of ECS docker volume"
+}
+
+variable "ebs_block_device_size" {
+    default = "22"
+    description = "Size of ECS docker volume in GiB"
+}
+
+variable "ebs_block_device_delete" {
+    default = true
+    description = "Mark ECS docker volume for removal"
+}
+
+variable "ebs_block_device_iops" {
+    default = "100"
+    description = "IOPS throughput of ECS docker volume"
+}
