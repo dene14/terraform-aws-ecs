@@ -5,14 +5,14 @@ variable "cluster_name" {
 /* ECS optimized AMIs per region */
 variable "amis" {
   default = {
-    ap-northeast-1 = "ami-a98d97c7"
-    ap-southeast-1 = "ami-4b3ee928"
-    ap-southeast-2 = "ami-513c1032"
-    eu-west-1      = "ami-f66de585"
-    us-east-1      = "ami-a1fa1acc"
-    us-west-1      = "ami-68106908"
-    us-west-2      = "ami-a28476c2"
-    eu-central-1   = "ami-f66de585"
+    ap-northeast-1 = "ami-058a4964"
+    ap-southeast-1 = "ami-0d9f466e"
+    ap-southeast-2 = "ami-7df2c61e"
+    eu-west-1      = "ami-7b244e08"
+    us-east-1      = "ami-52cd5445"
+    us-west-1      = "ami-efa1e28f"
+    us-west-2      = "ami-a426edc4"
+    eu-central-1   = "ami-721aec1d"
   }
 }
 
@@ -81,4 +81,49 @@ variable "registry_auth" {
 variable "environment_name" {
     default = ""
     description = "Environment name to tag EC2 resources with (tag=environment)"
+}
+
+variable "root_block_device_type" {
+    default = "standard"
+    description = "Type of ECS instance root volume"
+}
+
+variable "root_block_device_size" {
+    default = "8"
+    description = "Size of ECS instance root volume"
+}
+
+variable "root_block_device_delete" {
+    default = true
+    description = "Mark ECS instance root volume for removal"
+}
+
+variable "root_block_device_iops" {
+    default = "100"
+    description = "IOPS throughput of ECS instance root volume"
+}
+
+variable "ebs_block_device_name" {
+    default = "/dev/xvdcz"
+    description = "Name of ECS docker volume"
+}
+
+variable "ebs_block_device_type" {
+    default = "standard"
+    description = "Type of ECS docker volume"
+}
+
+variable "ebs_block_device_size" {
+    default = "22"
+    description = "Size of ECS docker volume in GiB"
+}
+
+variable "ebs_block_device_delete" {
+    default = true
+    description = "Mark ECS docker volume for removal"
+}
+
+variable "ebs_block_device_iops" {
+    default = "100"
+    description = "IOPS throughput of ECS docker volume"
 }

@@ -10,16 +10,14 @@ resource "aws_iam_role" "ecs_service_role" {
   assume_role_policy = "${file("${path.module}/files/aws_trusts/ecs_service_role_trust.json")}"
 }
 
-resource "aws_iam_role_policy" "AmazonEC2ContainerServiceforEC2Role" {
-  name = "AmazonEC2ContainerServiceforEC2RoleV3-${var.cluster_name}"
+resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerServiceforEC2Role" {
   role = "${aws_iam_role.ecs_instance_role.id}"
-  policy = "${file("${path.module}/files/aws_policies/AmazonEC2ContainerServiceforEC2RoleV3.json")}"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
 }
 
-resource "aws_iam_role_policy" "AmazonEC2ContainerServiceRole" {
-  name = "AmazonEC2ContainerServiceRoleV1"
+resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerServiceRole" {
   role = "${aws_iam_role.ecs_service_role.id}"
-  policy = "${file("${path.module}/files/aws_policies/AmazonEC2ContainerServiceRoleV1.json")}"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
 }
 
 # Create an instance profile for this ecsInstanceRole.  This is assigned to the machine
@@ -29,4 +27,3 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
   name = "${aws_iam_role.ecs_instance_role.name}"
   roles = ["${aws_iam_role.ecs_instance_role.name}"]
 }
-

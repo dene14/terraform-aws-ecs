@@ -6,5 +6,19 @@ resource "aws_launch_configuration" "ecs" {
     key_name = "${var.key_name}"
     security_groups = ["${split(",", var.security_group_ids)}"]
     user_data = "#!/bin/bash\necho ECS_CLUSTER=${var.cluster_name} > /etc/ecs/ecs.config && echo ECS_ENGINE_AUTH_TYPE=dockercfg >> /etc/ecs/ecs.config && echo ECS_ENGINE_AUTH_DATA='{\"${var.registry_url}\":{\"auth\":\"${var.registry_auth}\",\"email\":\"${var.registry_email}\"}}' >> /etc/ecs/ecs.config"
-    associate_public_ip_address = true
+#    associate_public_ip_address = true
+
+    root_block_device {
+      volume_type = "${var.root_block_device_type}"
+      volume_size = "${var.root_block_device_size}"
+      iops = "${var.root_block_device_iops}"
+      delete_on_termination = "${var.root_block_device_delete}"
+    }
+    ebs_block_device {
+      device_name = "${var.ebs_block_device_name}"
+      volume_type = "${var.ebs_block_device_type}"
+      volume_size = "${var.ebs_block_device_size}"
+      iops = "${var.ebs_block_device_iops}"
+      delete_on_termination = "${var.ebs_block_device_delete}"
+    }
 }
