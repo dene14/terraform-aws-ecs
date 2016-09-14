@@ -127,3 +127,10 @@ variable "ebs_block_device_iops" {
     default = "100"
     description = "IOPS throughput of ECS docker volume"
 }
+
+variable "associate_public_ip_address" {
+    # not a good choice here, see
+    # https://github.com/hashicorp/terraform/issues/4292#issuecomment-247116116
+    default = "false"
+    description = "Associate public IP with instance"
+}

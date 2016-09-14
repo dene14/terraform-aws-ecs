@@ -6,7 +6,7 @@ resource "aws_launch_configuration" "ecs" {
     key_name = "${var.key_name}"
     security_groups = ["${split(",", var.security_group_ids)}"]
     user_data = "#!/bin/bash\necho ECS_CLUSTER=${var.cluster_name} > /etc/ecs/ecs.config && echo ECS_ENGINE_AUTH_TYPE=dockercfg >> /etc/ecs/ecs.config && echo ECS_ENGINE_AUTH_DATA='{\"${var.registry_url}\":{\"auth\":\"${var.registry_auth}\",\"email\":\"${var.registry_email}\"}}' >> /etc/ecs/ecs.config"
-#    associate_public_ip_address = true
+    associate_public_ip_address = "${var.associate_public_ip_address}"
 
     root_block_device {
       volume_type = "${var.root_block_device_type}"
