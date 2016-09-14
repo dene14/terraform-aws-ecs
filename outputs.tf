@@ -58,10 +58,6 @@ output "cluster.name" {
   value = "${aws_ecs_cluster.ecs-cluster.name}"
 }
 
-output "cluster.name" {
-  value = "${aws_ecs_cluster.ecs-cluster.name}"
-}
-
 output "policy.instance.id" {
   value = "${aws_iam_role.ecs_instance_role.id}"
 }
