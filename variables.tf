@@ -26,16 +26,19 @@ variable "region" {
 }
 
 variable "availability_zones" {
-    description = "Comma separated list of EC2 availability zones to launch instances, must be within region"
+    type = "list"
+    description = "List of EC2 availability zones to launch instances, must be within region"
 }
 
 variable "subnet_ids" {
-    description = "Comma separated list of subnet ids, must match availability zones"
+    type = "list"
+    description = "List of subnet ids, must match availability zones"
 }
 
 variable "security_group_ids" {
-    description = "Comma separated list of security group ids"
-    default = ""
+    type = "list"
+    description = "List of security group ids"
+    default = []
 }
 
 variable "instance_type" {
