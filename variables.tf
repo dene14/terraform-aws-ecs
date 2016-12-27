@@ -137,3 +137,9 @@ variable "associate_public_ip_address" {
     default = "false"
     description = "Associate public IP with instance"
 }
+
+variable "ecs_user_data" {
+    default = ""
+    description = "Additional user_data for ECS cluster instances"
+}
+
