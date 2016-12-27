@@ -5,14 +5,15 @@ variable "cluster_name" {
 /* ECS optimized AMIs per region */
 variable "amis" {
   default = {
-    ap-northeast-1 = "ami-096cba68"
-    ap-southeast-1 = "ami-7934ee1a"
-    ap-southeast-2 = "ami-22a49541"
-    eu-west-1      = "ami-b6760fc5"
-    us-east-1      = "ami-3d55272a"
-    us-west-1      = "ami-444d0224"
-    us-west-2      = "ami-1ccd1f7c"
-    eu-central-1   = "ami-f562909a"
+    ap-northeast-1 = "ami-9cd57ffd"
+    ap-southeast-1 = "ami-a900a3ca"
+    ap-southeast-2 = "ami-5781be34"
+    eu-west-1      = "ami-a1491ad2"
+    us-east-1      = "ami-eca289fb"
+    us-east-2      = "ami-446f3521"
+    us-west-1      = "ami-9fadf8ff"
+    us-west-2      = "ami-7abc111a"
+    eu-central-1   = "ami-54f5303b"
   }
 }
 
