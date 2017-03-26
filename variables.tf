@@ -144,3 +144,13 @@ variable "ecs_user_data" {
     description = "Additional user_data for ECS cluster instances"
 }
 
+#Things below are added due to: https://github.com/hashicorp/terraform/issues/9098
+variable "nodeexporter_port" {
+    default = 9100
+    description = "My ugly and temporary fix to get additional tags"
+}
+variable "cadvisor_port" {
+    default = 9101
+    description = "My ugly and temporary fix to get additional tags"
+}
+

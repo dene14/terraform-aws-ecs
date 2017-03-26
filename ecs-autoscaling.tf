@@ -21,4 +21,17 @@ resource "aws_autoscaling_group" "ecs-cluster" {
     value =  "ECS ${var.cluster_name}"
     propagate_at_launch = true
   }
+
+  tag {
+    key = "prometheus_node_exporter"
+    value =  "${var.nodeexporter_port}"
+    propagate_at_launch = true
+  }
+
+  tag {
+    key = "prometheus_cAdvisor"
+    value =  "${var.cadvisor_port}"
+    propagate_at_launch = true
+  }
+
 }
