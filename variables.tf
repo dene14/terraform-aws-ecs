@@ -105,7 +105,7 @@ variable "root_block_device_delete" {
 }
 
 variable "root_block_device_iops" {
-    default = "100"
+    default = "0"
     description = "IOPS throughput of ECS instance root volume"
 }
 
@@ -130,7 +130,7 @@ variable "ebs_block_device_delete" {
 }
 
 variable "ebs_block_device_iops" {
-    default = "100"
+    default = "0"
     description = "IOPS throughput of ECS docker volume"
 }
 
